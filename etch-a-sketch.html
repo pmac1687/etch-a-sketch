@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>etch-a-sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='jquery-3.5.1.js'></script>
+</head>
+<body>
+    <button onclick='start()'><span style='margin-left: -20px;'>populate</span></button>
+    <div id='main' style="display: flex; flex-wrap: wrap;"></div>
+</body>
+</html>
+<script>
+    function start() {
+        var node = document.getElementById('main');
+        node.innerHTML = ''
+        var size = prompt('what size grid would you like?','number between 1-100');
+        if (!isNaN(size) && parseInt(size,10) < 101) {
+            size = parseInt(size,10);
+            generate(size);
+        }
+    }
+    function generate(size) {
+        for (i=0; i<size*size;i++) {
+            var num = size*10;
+            num = num.toString(10) + 'px';
+            const p = document.createElement('p')
+            const main = document.getElementById('main');
+            main.style.maxWidth = num;
+            p.style.height = '10px';
+            p.style.width = '10px';
+            p.style.padding = '0px';
+            p.style.margin = '0px';
+            p.style.backgroundColor = 'red';
+            $('p').mouseout(function() {
+                $(this).css('filter','hue-rotate(120deg)');
+            })
+            p.id = 'space'
+            document.getElementById('main').appendChild(p);
+        }
+    }
+    function hovering(p) {
+        p.style.backgroundColor = 'red';
+    }
+    $(document).ready(function(){
+        $('#space').hover(function(){
+            $('#space').css('backgroundColor','red');
+        })
+    })
+</script>
