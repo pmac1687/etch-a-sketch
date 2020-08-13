@@ -41,10 +41,18 @@
     function hovering(p) {
         p.style.backgroundColor = 'red';
     }
+    document.addEventListener("DOMContentLoaded", function(){
+        const space = document.getElementById('space');
+        space.hover(function(){
+            space.css('backgroundColor','red');
+        })
+    });
+        
     document.onReady(function(){
         const space = document.getElementById('space');
         space.hover(function(){
             space.css('backgroundColor','red');
         })
+
     })
 </script>
