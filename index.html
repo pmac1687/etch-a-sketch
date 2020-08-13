@@ -33,7 +33,7 @@
             p.style.padding = '0px';
             p.style.margin = '0px';
             p.style.backgroundColor = 'red';
-            $('p').mouseout(function() {
+            p.mouseout(function() {
                 $(this).css('filter','hue-rotate(120deg)');
             })
             p.id = 'space'
@@ -44,8 +44,9 @@
         p.style.backgroundColor = 'red';
     }
     $(document).ready(function(){
-        $('#space').hover(function(){
-            $('#space').css('backgroundColor','red');
+        const space = document.getElementById('space');
+        space.hover(function(){
+            space.css('backgroundColor','red');
         })
     })
 </script>
